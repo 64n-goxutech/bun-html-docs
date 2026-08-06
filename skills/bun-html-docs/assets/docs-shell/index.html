@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN" data-doc-shell="1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="__DOC_SUMMARY__">
+  <title>__DOC_TITLE__</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="menu-button" type="button" aria-label="打开章节目录" aria-controls="sidebar" aria-expanded="false">≡</button>
+      <a class="doc-brand" href="#overview" aria-label="返回文档开头">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>__DOC_LABEL__</span>
+      </a>
+      <div class="search-shell">
+        <label class="sr-only" for="doc-search">搜索文档</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="doc-search" type="search" placeholder="搜索章节、术语或源码路径" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="search-results" aria-expanded="false">
+        <kbd class="search-shortcut">/</kbd>
+        <div id="search-results" class="search-results" role="listbox" aria-label="搜索结果" hidden></div>
+      </div>
+      <span class="header-meta">UPDATED __DOC_DATE__</span>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <aside id="sidebar" class="sidebar" aria-label="章节目录">
+      <div class="sidebar-inner">
+        <p class="nav-label">ON THIS PAGE</p>
+        <nav id="doc-nav"></nav>
+      </div>
+    </aside>
+    <button class="mobile-scrim" type="button" aria-label="关闭章节目录" hidden></button>
+
+    <main id="main-content" class="main-content">
+      <article class="document">
+        <header id="overview" class="doc-intro" data-searchable data-nav="概览" data-group="导读">
+          <p class="eyebrow">__DOC_LABEL__</p>
+          <h1>__DOC_TITLE__</h1>
+          <p class="lead">__DOC_SUMMARY__</p>
+          <div class="fact-line">
+            <span class="status status-fact">当前源码事实</span>
+            <p>用一条已经核对源码的核心结论替换这段文字，并指出主要所有者与边界。</p>
+          </div>
+        </header>
+
+        <section id="mental-model" class="doc-section" data-searchable data-nav="最小心智模型" data-group="基础">
+          <p class="section-kicker">01 · MENTAL MODEL</p>
+          <h2><a href="#mental-model">先建立最小心智模型</a></h2>
+          <p class="section-intro">解释读者在进入实现前必须知道的背景、职责边界和核心术语。</p>
+          <div class="callout">
+            <strong>阅读抓手</strong>
+            <p>用“谁接收输入、谁拥有状态、谁产生输出”概括系统，而不是先罗列文件。</p>
+          </div>
+          <p>示例术语：<button class="wiki-term" type="button" data-wiki="runtime">Runtime</button> 是让项目在运行期持有资源、状态并执行工作的对象集合。</p>
+        </section>
+
+        <section id="system-map" class="doc-section" data-searchable data-nav="全局关系" data-group="架构">
+          <p class="section-kicker">02 · SYSTEM MAP</p>
+          <h2><a href="#system-map">模块怎样协作</a></h2>
+          <p class="section-intro">只为真实关系绘图；简单事实保留为正文。</p>
+          <div class="flow" aria-label="示例模块关系">
+            <div><strong>入口</strong><span>用户意图或请求</span></div>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <div><strong>所有者</strong><span>校验并改变权威状态</span></div>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <div><strong>输出</strong><span>投影、响应或副作用</span></div>
+          </div>
+        </section>
+
+        <section id="main-path" class="doc-section" data-searchable data-nav="主链路" data-group="调用链">
+          <p class="section-kicker">03 · MAIN PATH</p>
+          <h2><a href="#main-path">沿一条真实主链路走到底</a></h2>
+          <p class="section-intro">把步骤替换成已经核对入口、调用方、被调用方和状态变化的真实链路。</p>
+          <ol class="sequence">
+            <li><span>01</span><div><strong>输入进入</strong><p>说明输入形状和第一个稳定入口。</p></div></li>
+            <li><span>02</span><div><strong>处理与提交</strong><p>说明校验、事务、状态所有权和失败语义。</p></div></li>
+            <li><span>03</span><div><strong>结果传播</strong><p>说明同步响应、派生状态和异步副作用。</p></div></li>
+          </ol>
+          <div class="code-block" data-code-title="调用链轮廓">
+            <pre><code>UI / API entry
+  -> application boundary
+      -> state owner
+          -> projection / response</code></pre>
+          </div>
+        </section>
+
+        <section id="failures" class="doc-section" data-searchable data-nav="失败与边界" data-group="可靠性">
+          <p class="section-kicker">04 · FAILURES</p>
+          <h2><a href="#failures">失败时发生什么</a></h2>
+          <p class="section-intro">覆盖与当前主题相关的错误传播、恢复、并发、性能和边界条件。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>条件</th><th>当前行为</th><th>影响</th><th>证据</th></tr></thead>
+              <tbody>
+                <tr><td>输入无效</td><td>替换为源码事实</td><td>替换为真实影响</td><td><code>relative/path.ts · symbol</code></td></tr>
+                <tr><td>异步过期</td><td>替换为源码事实</td><td>替换为真实影响</td><td><code>relative/path.ts · symbol</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Change documents: insert a complete "预计改动与影响评估" section here. -->
+
+        <section id="source-map" class="doc-section" data-searchable data-nav="源码地图" data-group="证据">
+          <p class="section-kicker">05 · SOURCE MAP</p>
+          <h2><a href="#source-map">从哪些源码继续阅读</a></h2>
+          <p class="section-intro">使用真实工程、仓库相对路径、关键符号和职责，不要只列文件。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>工程</th><th>路径与符号</th><th>职责</th><th>阅读理由</th></tr></thead>
+              <tbody>
+                <tr><td>source-repo</td><td><code>relative/path.ts</code><br><code>ExactSymbol</code></td><td>说明所有权</td><td>说明它在主链路的位置</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="example" class="doc-section" data-searchable data-nav="完整案例" data-group="实践">
+          <p class="section-kicker">06 · EXAMPLE</p>
+          <h2><a href="#example">用一个完整案例串联前文</a></h2>
+          <p class="section-intro">选择能经过输入、处理、状态变化、输出和失败分支的代表性案例。</p>
+          <div class="callout accent">
+            <strong>结论</strong>
+            <p>在这里给出读完案例后应该保留的工程判断。</p>
+          </div>
+        </section>
+
+        <section id="glossary" class="doc-section" data-searchable data-nav="术语表" data-group="参考">
+          <p class="section-kicker">07 · GLOSSARY</p>
+          <h2><a href="#glossary">上下文术语表</a></h2>
+          <div class="glossary-list">
+            <article class="glossary-entry" data-wiki-definition data-term="runtime" data-category="运行时">
+              <h3>Runtime</h3>
+              <p data-wiki-summary>程序运行期间持有资源、状态并执行工作的对象集合。</p>
+              <p><strong>在当前项目：</strong>替换为与本主题直接相关的项目语义。</p>
+            </article>
+          </div>
+        </section>
+      </article>
+    </main>
+  </div>
+
+  <aside id="wiki-popover" class="wiki-popover" role="dialog" aria-modal="false" aria-labelledby="wiki-title" hidden>
+    <div class="wiki-head">
+      <span id="wiki-category"></span>
+      <button id="wiki-close" type="button" aria-label="关闭术语解释">×</button>
+    </div>
+    <h2 id="wiki-title"></h2>
+    <div id="wiki-body"></div>
+    <a id="wiki-link" href="#glossary">查看术语表</a>
+  </aside>
+
+  <noscript><p class="noscript-note">JavaScript 未启用；正文仍可阅读，搜索与术语浮层暂不可用。</p></noscript>
+</body>
+</html>
