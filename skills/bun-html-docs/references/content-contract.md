@@ -4,15 +4,53 @@
 
 Write for a reader with no prior knowledge. Explain why the topic exists, who owns each responsibility, how components cooperate, how data changes, and what happens when work fails. Avoid turning the page into a directory, type, or function inventory.
 
+## Beginner-first opening contract
+
+The opening is a teaching surface, not an executive summary for people who already know the codebase. Assume the reader does not know the repository, domain abbreviations, internal English labels, or source types.
+
+The first viewport and first section must establish, in this order:
+
+1. **Observable problem:** what the user, operator, or developer actually sees or tries to do.
+2. **Plain cause:** why it happens using familiar actions and concrete nouns.
+3. **Core ideas:** the two or three changes, responsibilities, or decisions that explain the topic.
+4. **Safety boundary:** what prevents the solution from waiting forever, using unlimited memory, corrupting state, or overriding newer work when relevant.
+
+Use a question, visible symptom, or literal task as the title. Write the lead so it makes sense without the rest of the page. A useful first-section structure is:
+
+| What the reader sees | Why it happens | What the system does | How it stays bounded |
+| --- | --- | --- | --- |
+| Familiar symptom | Plain cause | Plain action | Timeout, limit, cancellation, ownership, or compatibility rule |
+
+Do not put these in the title, lead, fact line, or first section before explaining them:
+
+- acronyms such as GOP, PCM, LRU, RPC, QoS, or ETA;
+- implementation labels such as exact, warmup, prime, pending, sibling, owner, or source;
+- function, class, type, event, protocol, or repository-internal names;
+- compressed phrases that only make sense after reading the source.
+
+When a technical term is necessary, introduce it as `plain meaning → project term → exact symbol`. For example: “短时间记住最近用过的画面（近期淘汰缓存，源码类型 `ExactVideoFrameCache`）”. Do not use a glossary or Wiki popover as a substitute for explaining the first occurrence in the body.
+
+Before accepting the outline, read only the opening and verify that a newcomer can answer:
+
+- What problem is this document about?
+- Why does that problem happen?
+- What are the two or three main ideas?
+- What important limit or failure rule keeps the change safe?
+
+If any answer requires opening a Wiki card, understanding an acronym, or reading source code, rewrite the opening.
+
 Use this narrative order unless the topic clearly needs another:
 
-1. one-sentence problem and system position;
-2. essential background, terminology, and minimal mental model;
-3. global relationship among modules or services;
-4. one real end-to-end path from input through state changes to output;
-5. source or evidence map with exact relative paths and symbols;
-6. failures, boundaries, performance implications, and common misconceptions;
-7. a complete example and recommended reading order.
+1. plain-language problem, observable symptom, and core ideas;
+2. essential background explained through familiar actions or a restrained analogy;
+3. minimal mental model with plain meanings paired to project terminology;
+4. global relationship among modules or services;
+5. one real end-to-end path from input through state changes to output;
+6. source or evidence map with exact relative paths and symbols;
+7. failures, boundaries, performance implications, and common misconceptions;
+8. a complete example and recommended reading order.
+
+Use two layers inside technical sections: first explain what happens and why in ordinary language; then supply project names, source symbols, formulas, or protocol details. Preserve rigor by moving evidence deeper, not by removing it.
 
 Label facts and uncertainty clearly:
 
@@ -74,3 +112,5 @@ Use a high-density technical-document layout, not a landing page, dashboard, or 
 ## Completion checks
 
 Verify `1440 x 900` and `390 x 844`, including page width equality, internal table/code scrolling, search states and keyboard navigation, anchors, active sections, copy, Wiki hover/focus/click, mobile navigation, and visible focus. The first viewport must lead with the topic and content hierarchy rather than decoration.
+
+Also inspect only the title, lead, fact line, and first section. Reject the page if this opening is a symbol inventory, acronym wall, compressed implementation summary, or text that becomes understandable only after later sections.

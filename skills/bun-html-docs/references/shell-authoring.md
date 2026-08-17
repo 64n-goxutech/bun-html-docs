@@ -7,14 +7,16 @@ Run the bundled script from the skill directory:
 ```bash
 python3 scripts/scaffold_document.py \
   --output /absolute/path/to/docs/topic-slug \
-  --title "Document title" \
-  --summary "One sentence explaining the problem and system position" \
+  --title "Literal reader question or familiar problem" \
+  --summary "Plain-language symptom, cause, and core idea without source terminology" \
   --label "TECHNICAL · SOURCE GUIDE"
 ```
 
 Optionally pass `--root /absolute/docs/root` to require the output directory to be nested below a known documentation root.
 
 The script creates `index.html`, `styles.css`, and `app.js` and refuses to overwrite any of them. Use it only for a new topic directory.
+
+Treat `--title` and `--summary` as novice-facing copy, not metadata for experts. Do not pass acronym stacks, internal component names, source symbols, or compressed implementation summaries. The scaffold places them in the browser title and first viewport.
 
 ## Author content without duplicate UI state
 
@@ -24,6 +26,7 @@ The script creates `index.html`, `styles.css`, and `app.js` and refuses to overw
 - Give each searchable section a stable kebab-case `id`.
 - Keep one `h1` in the introduction and one `h2` in each searchable section.
 - Do not maintain a separate table of contents; `app.js` derives it from sections.
+- Keep the generated `plain-summary` section first. Replace its placeholders with observable symptoms, ordinary-language causes, core actions, and relevant limits before adding implementation terminology.
 
 The shell indexes section text, navigation labels, groups, and inline code; ranks matches; creates snippets; handles empty results; and supports ArrowUp, ArrowDown, Enter, Escape, `/`, and Command/Ctrl+K.
 

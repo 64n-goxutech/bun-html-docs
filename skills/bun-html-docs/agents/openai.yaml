@@ -1,7 +1,7 @@
 interface:
   display_name: "Bun 风格 HTML 文档"
-  short_description: "复用标准 Bun 文档壳生成支持搜索、Wiki 与响应式的 HTML 技术文档"
-  default_prompt: "使用 $bun-html-docs 研究当前主题并生成 Bun 风格的完整 HTML 技术文档。"
+  short_description: "从零递进讲清技术主题并生成可搜索的 Bun 风格 HTML 文档"
+  default_prompt: "使用 $bun-html-docs 从零研究并讲清当前主题，先用人话解释问题与核心思路，再递进到术语和源码证据。"
 
 policy:
   allow_implicit_invocation: false

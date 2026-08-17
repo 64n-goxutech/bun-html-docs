@@ -17,8 +17,16 @@ FILES = ("index.html", "styles.css", "app.js")
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True, type=Path, help="New topic directory")
-    parser.add_argument("--title", required=True, help="Document title")
-    parser.add_argument("--summary", required=True, help="One-sentence topic summary")
+    parser.add_argument(
+        "--title",
+        required=True,
+        help="Novice-facing reader question or familiar problem; avoid internal terminology",
+    )
+    parser.add_argument(
+        "--summary",
+        required=True,
+        help="Plain-language symptom, cause, and core idea without source symbols",
+    )
     parser.add_argument("--label", default="TECHNICAL DOCUMENT", help="Compact header label")
     parser.add_argument("--root", type=Path, help="Optional documentation root boundary")
     return parser.parse_args()

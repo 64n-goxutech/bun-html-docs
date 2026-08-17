@@ -45,23 +45,41 @@
           <p class="lead">__DOC_SUMMARY__</p>
           <div class="fact-line">
             <span class="status status-fact">当前源码事实</span>
-            <p>用一条已经核对源码的核心结论替换这段文字，并指出主要所有者与边界。</p>
+            <p>先用日常语言写一条已经核对源码的核心结论；源码名称和所有者放到后续章节。</p>
           </div>
         </header>
 
+        <section id="plain-summary" class="doc-section" data-searchable data-nav="先用人话看懂" data-group="导读">
+          <p class="section-kicker">01 · PLAIN-LANGUAGE SUMMARY</p>
+          <h2><a href="#plain-summary">先别管术语：这篇文档到底在讲什么</a></h2>
+          <p class="section-intro">假设读者不了解项目。先写可观察现象和直白因果，再把技术名词留给后文。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>读者会看到什么</th><th>为什么会这样</th><th>系统怎么处理</th><th>怎样防止失控</th></tr></thead>
+              <tbody>
+                <tr><td>替换为熟悉的现象或任务</td><td>不用源码名词解释直接原因</td><td>概括两三项核心动作</td><td>说明相关的超时、上限、取消或兼容边界</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout accent">
+            <strong>开篇验收</strong>
+            <p>只读标题、摘要和本节，读者就应能回答：问题是什么、为什么发生、主要怎么解决。否则继续改写，不要用 Wiki 卡补救晦涩正文。</p>
+          </div>
+        </section>
+
         <section id="mental-model" class="doc-section" data-searchable data-nav="最小心智模型" data-group="基础">
-          <p class="section-kicker">01 · MENTAL MODEL</p>
+          <p class="section-kicker">02 · MENTAL MODEL</p>
           <h2><a href="#mental-model">先建立最小心智模型</a></h2>
-          <p class="section-intro">解释读者在进入实现前必须知道的背景、职责边界和核心术语。</p>
+          <p class="section-intro">先用熟悉动作解释背景和职责，再给出项目术语；不要让读者靠猜缩写进入实现。</p>
           <div class="callout">
             <strong>阅读抓手</strong>
             <p>用“谁接收输入、谁拥有状态、谁产生输出”概括系统，而不是先罗列文件。</p>
           </div>
-          <p>示例术语：<button class="wiki-term" type="button" data-wiki="runtime">Runtime</button> 是让项目在运行期持有资源、状态并执行工作的对象集合。</p>
+          <p>示例术语：程序运行时需要一组对象持续保管资源和状态，项目把这组对象称为 <button class="wiki-term" type="button" data-wiki="runtime">Runtime</button>。</p>
         </section>
 
         <section id="system-map" class="doc-section" data-searchable data-nav="全局关系" data-group="架构">
-          <p class="section-kicker">02 · SYSTEM MAP</p>
+          <p class="section-kicker">03 · SYSTEM MAP</p>
           <h2><a href="#system-map">模块怎样协作</a></h2>
           <p class="section-intro">只为真实关系绘图；简单事实保留为正文。</p>
           <div class="flow" aria-label="示例模块关系">
@@ -74,7 +92,7 @@
         </section>
 
         <section id="main-path" class="doc-section" data-searchable data-nav="主链路" data-group="调用链">
-          <p class="section-kicker">03 · MAIN PATH</p>
+          <p class="section-kicker">04 · MAIN PATH</p>
           <h2><a href="#main-path">沿一条真实主链路走到底</a></h2>
           <p class="section-intro">把步骤替换成已经核对入口、调用方、被调用方和状态变化的真实链路。</p>
           <ol class="sequence">
@@ -91,7 +109,7 @@
         </section>
 
         <section id="failures" class="doc-section" data-searchable data-nav="失败与边界" data-group="可靠性">
-          <p class="section-kicker">04 · FAILURES</p>
+          <p class="section-kicker">05 · FAILURES</p>
           <h2><a href="#failures">失败时发生什么</a></h2>
           <p class="section-intro">覆盖与当前主题相关的错误传播、恢复、并发、性能和边界条件。</p>
           <div class="table-wrap">
@@ -108,7 +126,7 @@
         <!-- Change documents: insert a complete "预计改动与影响评估" section here. -->
 
         <section id="source-map" class="doc-section" data-searchable data-nav="源码地图" data-group="证据">
-          <p class="section-kicker">05 · SOURCE MAP</p>
+          <p class="section-kicker">06 · SOURCE MAP</p>
           <h2><a href="#source-map">从哪些源码继续阅读</a></h2>
           <p class="section-intro">使用真实工程、仓库相对路径、关键符号和职责，不要只列文件。</p>
           <div class="table-wrap">
@@ -122,7 +140,7 @@
         </section>
 
         <section id="example" class="doc-section" data-searchable data-nav="完整案例" data-group="实践">
-          <p class="section-kicker">06 · EXAMPLE</p>
+          <p class="section-kicker">07 · EXAMPLE</p>
           <h2><a href="#example">用一个完整案例串联前文</a></h2>
           <p class="section-intro">选择能经过输入、处理、状态变化、输出和失败分支的代表性案例。</p>
           <div class="callout accent">
@@ -132,7 +150,7 @@
         </section>
 
         <section id="glossary" class="doc-section" data-searchable data-nav="术语表" data-group="参考">
-          <p class="section-kicker">07 · GLOSSARY</p>
+          <p class="section-kicker">08 · GLOSSARY</p>
           <h2><a href="#glossary">上下文术语表</a></h2>
           <div class="glossary-list">
             <article class="glossary-entry" data-wiki-definition data-term="runtime" data-category="运行时">
