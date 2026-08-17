@@ -68,6 +68,7 @@ Write each technical section in two layers: first explain what happens and why i
 - For an existing shell page, update content without duplicating navigation, search indexes, Wiki definitions, or copy logic.
 - For a pre-shell page, inspect its current behavior before deciding whether migration is required. Never overwrite it with the scaffolder.
 - Prefer native HTML, CSS, and JavaScript with no network dependency. Keep the document readable when JavaScript is unavailable.
+- Keep an explicit `← 文档首页` link visible in the top bar at every viewport and repeat it at the top of the desktop sidebar. Resolve the target relative to the documentation root so it works under direct `file://` access and static hosting such as GitHub Pages.
 - Extend the shell only for topic-specific explanatory needs. Do not fork stable search, navigation, Wiki, copy, or mobile behavior without evidence that the shared implementation is insufficient.
 
 ### 6. Verify the result
@@ -76,6 +77,7 @@ Write each technical section in two layers: first explain what happens and why i
 - Verify at `1440 x 900` and `390 x 844`.
 - Confirm no page-level horizontal overflow and that tables and code scroll inside their own containers.
 - Exercise search success, empty results, ArrowUp, ArrowDown, Enter, Escape, anchor offsets, active navigation, mobile navigation, copy controls, Wiki hover/focus/click, and visible keyboard focus.
+- Click the top-bar and sidebar home links from the deepest relevant output path and confirm both reach the documentation root `index.html`.
 - Inspect screenshots for clipping, overlap, weak hierarchy, decoration dominating the first viewport, or an opening dominated by unexplained jargon.
 - Read only the `h1`, lead, fact line, and first section as a zero-knowledge reader. Rewrite them if understanding depends on source symbols, acronyms, English labels, or later sections.
 - Recheck paths, symbols, excerpts, claims, and status labels against their evidence.

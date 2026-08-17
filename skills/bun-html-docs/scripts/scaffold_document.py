@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 from datetime import date
 from html import escape
 from pathlib import Path
@@ -35,11 +36,13 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     output = args.output.expanduser().resolve()
+    home = Path("../../index.html")
 
     if args.root:
         root = args.root.expanduser().resolve()
         if root not in output.parents:
             raise SystemExit(f"output must be a topic subdirectory below {root}")
+        home = Path(os.path.relpath(root / "index.html", output))
 
     conflicts = [name for name in FILES if (output / name).exists()]
     if conflicts:
@@ -55,6 +58,7 @@ def main() -> int:
         "__DOC_SUMMARY__": escape(args.summary, quote=True),
         "__DOC_LABEL__": escape(args.label, quote=True),
         "__DOC_DATE__": date.today().isoformat(),
+        "__DOC_HOME__": home.as_posix(),
     }
 
     for name in FILES:
