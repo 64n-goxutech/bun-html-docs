@@ -18,7 +18,7 @@ The script creates `index.html`, `styles.css`, and `app.js` and refuses to overw
 
 Treat `--title` and `--summary` as novice-facing copy, not metadata for experts. Do not pass acronym stacks, internal component names, source symbols, or compressed implementation summaries. The scaffold places them in the browser title and first viewport.
 
-When `--root` is provided, the scaffold calculates that root's `index.html` path relative to the output directory. Without `--root`, it uses the documented `docs/<topic-slug>/` default of `../../index.html`. Preserve `__DOC_HOME__` replacements in both the visible top-bar link and sidebar link so navigation works under direct `file://` access and static hosting.
+The scaffold installs one shared `assets/document-home.js` component at the documentation root and calculates its script path relative to the output directory. Without `--root`, it infers the root from the documented `docs/<topic-slug>/` layout. The component derives `index.html` from its own script URL, so it works under direct `file://` access and static hosting. Do not add a second home link to the page template.
 
 ## Author content without duplicate UI state
 

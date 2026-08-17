@@ -7,15 +7,16 @@
   <title>__DOC_TITLE__</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
+  <script src="__DOC_HOME_COMPONENT__" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">跳到正文</a>
   <header class="site-header">
     <div class="header-inner">
       <button class="menu-button" type="button" aria-label="打开章节目录" aria-controls="sidebar" aria-expanded="false">≡</button>
-      <a class="doc-brand" href="__DOC_HOME__" aria-label="返回文档首页">
+      <a class="doc-brand" href="#overview" aria-label="返回文档开头">
         <span class="brand-mark" aria-hidden="true"></span>
-        <span>← 文档首页</span>
+        <span>__DOC_LABEL__</span>
       </a>
       <div class="search-shell">
         <label class="sr-only" for="doc-search">搜索文档</label>
@@ -31,10 +32,6 @@
   <div class="page-shell">
     <aside id="sidebar" class="sidebar" aria-label="章节目录">
       <div class="sidebar-inner">
-        <a class="docs-home-link" href="__DOC_HOME__" aria-label="返回文档首页">
-          <span aria-hidden="true">←</span>
-          <span>文档首页</span>
-        </a>
         <p class="nav-label">ON THIS PAGE</p>
         <nav id="doc-nav"></nav>
       </div>
