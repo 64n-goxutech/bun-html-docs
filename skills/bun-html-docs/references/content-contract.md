@@ -17,6 +17,8 @@ The first viewport and first section must establish, in this order:
 
 Use a question, visible symptom, or literal task as the title. Write the lead so it makes sense without the rest of the page. A useful first-section structure is:
 
+Titles, navigation labels, and section intros should state the topic, conclusion, or mechanism directly. Avoid slogans that narrate how the reader is expected to read; the document should explain the subject itself.
+
 | What the reader sees | Why it happens | What the system does | How it stays bounded |
 | --- | --- | --- | --- |
 | Familiar symptom | Plain cause | Plain action | Timeout, limit, cancellation, ownership, or compatibility rule |

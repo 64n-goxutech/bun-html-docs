@@ -44,6 +44,7 @@ Draft the opening before the detailed outline. Assume the reader knows neither t
 - Do not use unexplained acronyms, English implementation labels, function names, type names, or repository shorthand in the title, lead, fact line, or first section. A Wiki card does not excuse an opaque opening.
 - Introduce every necessary term in this order: plain concept first, project term second, exact source symbol third. Example: “短时间记住最近用过的画面（近期淘汰缓存，源码类型 `ExactVideoFrameCache`）”.
 - Keep code, path inventories, module maps, protocol fields, and performance abbreviations below the initial explanation.
+- Write titles, navigation labels, and section intros as direct descriptions of the topic, conclusion, or mechanism. Do not turn reading steps into slogans addressed to the reader.
 
 The opening passes only if a newcomer can answer: “What problem is this about?”, “Why does it happen?”, and “What are the two or three main ideas?” without opening a Wiki card or reading code.
 

@@ -1,7 +1,7 @@
 interface:
   display_name: "Bun 风格 HTML 文档"
   short_description: "从零递进讲清技术主题并生成可搜索的 Bun 风格 HTML 文档"
-  default_prompt: "使用 $bun-html-docs 从零研究并讲清当前主题，先用人话解释问题与核心思路，再递进到术语和源码证据。"
+  default_prompt: "使用 $bun-html-docs 从零研究并讲清当前主题，用日常语言说明问题与核心思路，随后递进到术语和源码证据；标题与章节标题直接描述主题、结论或机制，避免阅读步骤式口吻。"
 
 policy:
   allow_implicit_invocation: false
